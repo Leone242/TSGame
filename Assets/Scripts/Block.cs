@@ -8,6 +8,10 @@ public class Block : MonoBehaviour
     private Transform collisionCheck;
     [SerializeField]
     private Manager manager;
+    private bool isSelected = true;
+    [SerializeField]
+    private float speed;
+
 
 
     void Awake()
@@ -18,6 +22,13 @@ public class Block : MonoBehaviour
     
     void Update()
     {
+        Vector3 direction = new Vector3();
+        direction.x = Input.GetAxis("Horizontal");
+        direction.y = Input.GetAxis("Vertical");
+        if(isSelected)
+        {
+            transform.position += direction * speed;
+        }
         
     }
 }
